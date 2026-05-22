@@ -1,27 +1,3 @@
-// ── Dark mode — defaults to light unless user has explicitly toggled ──
-const toggle = document.querySelector('.theme-toggle');
-const html = document.documentElement;
-
-// Only restore if the user has previously made a choice
-const saved = localStorage.getItem('theme');
-if (saved) html.dataset.theme = saved;
-// No system-preference detection — light is the default
-
-updateLabel();
-
-toggle.addEventListener('click', () => {
-  const isDark = html.dataset.theme === 'dark';
-  html.dataset.theme = isDark ? 'light' : 'dark';
-  localStorage.setItem('theme', html.dataset.theme);
-  updateLabel();
-});
-
-function updateLabel() {
-  const isDark = html.dataset.theme === 'dark';
-  toggle.textContent = isDark ? '☀' : '◑';
-  toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-}
-
 // ── Modals ──
 const backdrop = document.getElementById('modal-backdrop');
 
