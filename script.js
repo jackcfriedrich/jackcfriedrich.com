@@ -1,11 +1,11 @@
-// ── Dark mode ──
+// ── Dark mode — defaults to light unless user has explicitly toggled ──
 const toggle = document.querySelector('.theme-toggle');
 const html = document.documentElement;
-const saved = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+// Only restore if the user has previously made a choice
+const saved = localStorage.getItem('theme');
 if (saved) html.dataset.theme = saved;
-else if (prefersDark) html.dataset.theme = 'dark';
+// No system-preference detection — light is the default
 
 updateLabel();
 
@@ -48,9 +48,6 @@ function openModal(id) {
   modal.classList.add('active');
   backdrop.classList.add('active');
   document.body.style.overflow = 'hidden';
-  // Scroll modal to top
-  const card = modal.querySelector('.modal-card');
-  if (card) card.scrollTop = 0;
   modal.scrollTop = 0;
 }
 
