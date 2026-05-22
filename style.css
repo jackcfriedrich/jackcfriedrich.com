@@ -46,7 +46,7 @@ body {
   height: 100vh;
   height: 100dvh;
   object-fit: cover;
-  object-position: 38% 68%;
+  object-position: 80% 100%;
   z-index: 0;
 }
 
